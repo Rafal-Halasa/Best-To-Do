@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Best To Do</string>
+    <string name="add_todo">add to do</string>
 </resources>
