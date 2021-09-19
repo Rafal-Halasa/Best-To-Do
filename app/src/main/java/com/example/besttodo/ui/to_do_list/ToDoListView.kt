@@ -6,17 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.besttodo.databinding.LayoutToDoListBinding
-import org.koin.java.KoinJavaComponent
+import org.koin.java.KoinJavaComponent.inject
 
-class ToDoListView : Fragment(), ToDoListViewI {
-    private val tooDoListViewModel: ToDoListViewModelI by KoinJavaComponent.inject(ToDoListViewModel::class.java)
+class ToDoListView : Fragment() {
+    private val tooDoListViewModel: ToDoListViewModelI by inject(ToDoListViewModel::class.java)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val inflate = LayoutToDoListBinding.inflate(inflater, container, false)
         inflate.viewModel = tooDoListViewModel
         return inflate.root
     }
-}
-
-interface ToDoListViewI {
-
 }

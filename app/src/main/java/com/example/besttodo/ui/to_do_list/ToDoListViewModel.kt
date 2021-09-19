@@ -1,19 +1,20 @@
 package com.example.besttodo.ui.to_do_list
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.besttodo.data.ToDo
+import androidx.lifecycle.asLiveData
+import com.example.besttodo.data.base.SingleLiveData
+import com.example.besttodo.data.models.ToDo
+import com.example.besttodo.logic.extensions.Actions
 import com.example.besttodo.logic.services.ToDoListService
 import com.example.besttodo.logic.services.ToDoListServiceI
 import org.koin.java.KoinJavaComponent.inject
 
 class ToDoListViewModel : ViewModel(), ToDoListViewModelI {
-    val todoListService: ToDoListServiceI by inject(ToDoListService::class.java)
+    private val todoListService: ToDoListServiceI by inject(ToDoListService::class.java)
+    val action: SingleLiveData<Actions> by inject(SingleLiveData::class.java)
+    override val toDoList: LiveData<List<ToDo>> = todoListService.allToDo.asLiveData()
 
-    override val toDoList: MutableLiveData<ToDo> by lazy { MutableLiveData<ToDo>() }
-    override fun loadTodoList() {
-
-    }
 
     override fun addToDo() {
 
@@ -22,7 +23,6 @@ class ToDoListViewModel : ViewModel(), ToDoListViewModelI {
 }
 
 interface ToDoListViewModelI {
-    val toDoList: MutableLiveData<ToDo>
-    fun loadTodoList()
+    val toDoList: LiveData<List<ToDo>>
     fun addToDo()
 }

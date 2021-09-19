@@ -1,7 +1,7 @@
 package com.example.besttodo
 
 import android.app.Application
-import com.example.besttodo.di.appModules
+import com.example.besttodo.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -10,7 +10,7 @@ class BestTodoApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@BestTodoApplication)
-            modules(appModules)
+            modules(viewModelsModules, dbModules, servicesModules, repositoriesModules, appModules)
         }
     }
 }
