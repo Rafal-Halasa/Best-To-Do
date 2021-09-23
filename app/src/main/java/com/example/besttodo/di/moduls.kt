@@ -8,6 +8,7 @@ import com.example.besttodo.data.data_base.dao.ToDoDao
 import com.example.besttodo.data.repositories.ToDoRepository
 import com.example.besttodo.logic.extensions.Actions
 import com.example.besttodo.logic.services.ToDoListService
+import com.example.besttodo.ui.to_do_create.ToDoCreateViewModel
 import com.example.besttodo.ui.to_do_list.ToDoListViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -19,6 +20,7 @@ val appModules = module {
 
 val viewModelsModules = module {
     viewModel { ToDoListViewModel() }
+    viewModel { ToDoCreateViewModel() }
 }
 val dbModules = module {
     single { createDB(androidApplication()) }

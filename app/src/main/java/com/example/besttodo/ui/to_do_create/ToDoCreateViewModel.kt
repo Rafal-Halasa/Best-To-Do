@@ -1,4 +1,10 @@
 package com.example.besttodo.ui.to_do_create
 
-class ToDoCreateViewModel {
+import androidx.lifecycle.ViewModel
+
+class ToDoCreateViewModel : ViewModel(), ToDoCreateViewModelI {
+}
+
+interface ToDoCreateViewModelI {
+
 }

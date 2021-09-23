@@ -1,11 +1,9 @@
 package com.example.besttodo.logic.extensions
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.navigation.fragment.findNavController
+import com.example.besttodo.R
 import com.example.besttodo.data.base.SingleLiveData
 import com.example.besttodo.logic.extensions.Actions.ADD_TASK
 import org.koin.java.KoinJavaComponent.inject
@@ -13,7 +11,7 @@ import org.koin.java.KoinJavaComponent.inject
 fun Fragment.observeActions(viewModel: ViewModel) {
     viewModel.action().observe(viewLifecycleOwner, {
         when (it) {
-            ADD_TASK -> TODO()
+            ADD_TASK -> findNavController().safeNavigate(R.id.action_toDoListView_to_toDoCreateView)
             else -> TODO()
         }
     })
