@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.besttodo.R
 import com.example.besttodo.data.base.SingleLiveData
-import com.example.besttodo.logic.extensions.Actions.ADD_TASK
+import com.example.besttodo.logic.extensions.Actions.TO_DO_INDO
 import org.koin.java.KoinJavaComponent.inject
 
 fun Fragment.observeActions(viewModel: ViewModel) {
     viewModel.action().observe(viewLifecycleOwner, {
         when (it) {
-            ADD_TASK -> findNavController().safeNavigate(R.id.action_toDoListView_to_toDoCreateView)
+            TO_DO_INDO -> findNavController().safeNavigate(R.id.action_toDoListView_to_toDoCreateView)
             else -> TODO()
         }
     })
@@ -23,5 +23,5 @@ fun ViewModel.action(): SingleLiveData<Actions> {
 }
 
 enum class Actions {
-    ADD_TASK
+    TO_DO_INDO
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Best To Do</string>
     <string name="add_todo">add to do</string>
+    <string name="what_do_you_want_to_do_today">What Do You want to do today</string>
 </resources>

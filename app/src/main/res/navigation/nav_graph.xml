@@ -15,6 +15,6 @@
     </fragment>
     <fragment
         android:id="@+id/toDoCreateView"
-        android:name="com.example.besttodo.ui.to_do_create.ToDoCreateView"
+        android:name="com.example.besttodo.ui.to_do_info.ToDoInfoView"
         android:label="ToDoCreateView" />
 </navigation>

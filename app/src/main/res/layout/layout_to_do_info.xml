@@ -6,16 +6,17 @@
 
         <variable
             name="viewModel"
-            type="com.example.besttodo.ui.to_do_create.ToDoCreateViewModelI" />
+            type="com.example.besttodo.ui.to_do_info.ToDoCreateViewModelI" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="test"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

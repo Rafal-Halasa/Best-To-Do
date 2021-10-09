@@ -10,7 +10,15 @@ class BestTodoApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@BestTodoApplication)
-            modules(viewModelsModules, dbModules, servicesModules, repositoriesModules, appModules)
+            modules(
+                viewModelsModules,
+                dbModules,
+                servicesModules,
+                repositoriesModules,
+                appModules,
+                adapters,
+                viewBinding
+            )
         }
     }
 }

@@ -11,7 +11,6 @@ class ToDoRepository : ToDoRepositoryI {
 
     override val allToDo = todoDao.getToDoes()
 
-    @Suppress("RedundantSuspendModifier")
     @WorkerThread
     override suspend fun insertToDo(toDo: ToDo) {
         todoDao.insert(toDo)

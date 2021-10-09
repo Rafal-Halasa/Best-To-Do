@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ToDoDao {
-    @Query("SELECT * FROM todo_table ORDER BY name ASC")
+    @Query("SELECT * FROM todo_table")
     fun getToDoes(): Flow<List<ToDo>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
