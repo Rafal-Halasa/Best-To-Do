@@ -17,12 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:background="@color/primaryColor">
+        android:background="@color/primaryColor"
+        android:onClick="@{()->listener.onItemClick(todo)}">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->listener.onItemClick(todo)}"
             android:text="@{todo.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
