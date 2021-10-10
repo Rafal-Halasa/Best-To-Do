@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Best To Do</string>
-    <string name="add_todo">add to do</string>
     <string name="what_do_you_want_to_do_today">What Do You want to do today</string>
+    <string name="to_do_logo">to do logo</string>
+    <string name="add_task">add task</string>
 </resources>

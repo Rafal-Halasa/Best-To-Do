@@ -7,15 +7,14 @@ import com.example.besttodo.data.models.ToDo
 import com.example.besttodo.databinding.ItemListToDoBinding
 import com.example.besttodo.ui.to_do_list.ToDoListItemClickListener
 
-class ToDoListAdapter(
-    var onClickListener: ToDoListItemClickListener? = null,
-    var todos: List<ToDo> = listOf()
-) : RecyclerView.Adapter<ToDoListAdapter.ViewHolder>() {
-
+class ToDoListAdapter : RecyclerView.Adapter<ToDoListAdapter.ViewHolder>() {
+    var onClickListener: ToDoListItemClickListener? = null
+    var todos: List<ToDo>? = null
 
     class ViewHolder(private val viewBinding: ItemListToDoBinding) : RecyclerView.ViewHolder(viewBinding.root) {
-        fun bind(todo: ToDo) {
+        fun bind(todo: ToDo, onClickListener: ToDoListItemClickListener?) {
             viewBinding.todo = todo
+            viewBinding.listener = onClickListener
         }
     }
 
@@ -24,8 +23,8 @@ class ToDoListAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(todos[position])
+        todos?.let { holder.bind(it[position], onClickListener) }
     }
 
-    override fun getItemCount(): Int = todos.size
+    override fun getItemCount(): Int = todos?.size ?: 0
 }

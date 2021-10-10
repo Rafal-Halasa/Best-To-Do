@@ -41,7 +41,7 @@ val repositoriesModules = module {
 }
 
 val adapters = module {
-    factory { ToDoListAdapter(get(),get()) }
+    single { ToDoListAdapter() }
 }
 val viewBinding = module {
     factory { createToDoListLayout(get(), get()) }
