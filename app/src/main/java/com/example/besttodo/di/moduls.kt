@@ -13,7 +13,7 @@ import com.example.besttodo.databinding.LayoutToDoListBinding
 import com.example.besttodo.logic.extensions.Actions
 import com.example.besttodo.logic.services.ToDoListService
 import com.example.besttodo.logic.services.ToDoListServiceI
-import com.example.besttodo.ui.to_do_info.ToDoCreateViewModel
+import com.example.besttodo.ui.to_do_info.ToDoInfoViewModel
 import com.example.besttodo.ui.to_do_list.ToDoListViewModel
 import com.example.besttodo.ui.to_do_list.components.ToDoListAdapter
 import org.koin.android.ext.koin.androidApplication
@@ -21,12 +21,12 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModules = module {
-    single { SingleLiveData<Actions>() }
+    single { SingleLiveData<Actions<Any?>>() }
 }
 
 val viewModelsModules = module {
     viewModel { ToDoListViewModel() }
-    viewModel { ToDoCreateViewModel() }
+    viewModel { ToDoInfoViewModel() }
 }
 
 val dbModules = module {

@@ -9,12 +9,15 @@
         android:name="com.example.besttodo.ui.to_do_list.ToDoListView"
         android:label="ToDoListView" >
         <action
-            app:popUpToInclusive="true"
-            android:id="@+id/action_toDoListView_to_toDoCreateView"
-            app:destination="@id/toDoCreateView" />
+            android:id="@+id/action_toDoListView_to_toDoInfoView"
+            app:destination="@id/toDoInfoView" />
     </fragment>
     <fragment
-        android:id="@+id/toDoCreateView"
+        android:id="@+id/toDoInfoView"
         android:name="com.example.besttodo.ui.to_do_info.ToDoInfoView"
-        android:label="ToDoCreateView" />
+        android:label="ToDoInfoView" >
+        <argument
+            android:name="to_do"
+            app:argType="com.example.besttodo.data.models.ToDo" />
+    </fragment>
 </navigation>

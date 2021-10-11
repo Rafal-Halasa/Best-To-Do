@@ -6,6 +6,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.besttodo.data.models.ToDo
 import com.example.besttodo.logic.extensions.Actions
+import com.example.besttodo.logic.extensions.GoTo
 import com.example.besttodo.logic.extensions.action
 import com.example.besttodo.logic.services.ToDoListServiceI
 import kotlinx.coroutines.launch
@@ -28,7 +29,7 @@ class ToDoListViewModel : ViewModel(), ToDoListViewModelI, KoinComponent {
     }
 
     override fun onItemClick(toDo: ToDo) {
-        action().value = Actions.TO_DO_INDO
+        action().value = Actions(toDo, GoTo.TO_DO_INFO)
     }
 
 }
