@@ -15,7 +15,7 @@ class ToDoInfoView : Fragment() {
     private val viewModel: ToDoInfoViewModel by inject(ToDoInfoViewModel::class.java)
     val args: ToDoInfoViewArgs by navArgs()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        observeActions(viewModel)
+        observeActions()
         Log.e("tutaj", args.toString())
         val inflate = LayoutToDoInfoBinding.inflate(inflater, container, false)
         inflate.viewModel = viewModel

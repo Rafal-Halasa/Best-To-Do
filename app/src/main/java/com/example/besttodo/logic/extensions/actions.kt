@@ -9,18 +9,20 @@ import com.example.besttodo.logic.extensions.GoTo.TO_DO_INFO
 import com.example.besttodo.ui.to_do_list.ToDoListViewDirections
 import org.koin.java.KoinJavaComponent.inject
 
-fun Fragment.observeActions(viewModel: ViewModel) {
-    viewModel.action().observe(viewLifecycleOwner, {
-        val tes = it.tes
+fun Fragment.observeActions() {
+    ActionNavigator.action.observe(viewLifecycleOwner) {
         when (it.goto) {
             TO_DO_INFO -> findNavController().navigate(ToDoListViewDirections.actionToDoListViewToToDoInfoView(it.tes as ToDo))
         }
-    })
+    }
 }
 
-fun ViewModel.action(): SingleLiveData<Actions<Any?>> {
-    val action: SingleLiveData<Actions<Any?>> by inject(SingleLiveData::class.java)
-    return action
+fun ViewModel.goToAction(actions: Actions<Any>) {
+    ActionNavigator.action.value = actions
+}
+
+object ActionNavigator {
+    val action: SingleLiveData<Actions<Any>> by inject(SingleLiveData::class.java)
 }
 
 data class Actions<T>(val tes: T, val goto: GoTo)

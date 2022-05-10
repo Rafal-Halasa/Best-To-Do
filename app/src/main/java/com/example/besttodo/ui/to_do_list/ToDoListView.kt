@@ -16,7 +16,7 @@ class ToDoListView : Fragment() {
     private val viewModel: ToDoListViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        observeActions(viewModel)
+        observeActions()
         val layout: LayoutToDoListBinding by inject { parametersOf(inflater, container) }
         viewModel.toDoList.observe(viewLifecycleOwner) {
             setTodos(layout.toDoListRecyclerView, it)
