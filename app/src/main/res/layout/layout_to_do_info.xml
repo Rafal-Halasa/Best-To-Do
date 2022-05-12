@@ -7,6 +7,11 @@
         <variable
             name="viewModel"
             type="com.example.besttodo.ui.to_do_info.ToDoCreateViewModelI" />
+
+        <variable
+            name="toDo"
+            type="com.example.besttodo.data.models.ToDo" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +21,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="test"
+            android:text="@{toDo.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

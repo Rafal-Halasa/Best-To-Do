@@ -9,6 +9,7 @@ import com.example.besttodo.data.data_base.ToDoDataBase
 import com.example.besttodo.data.data_base.dao.ToDoDao
 import com.example.besttodo.data.repositories.ToDoRepository
 import com.example.besttodo.data.repositories.ToDoRepositoryI
+import com.example.besttodo.databinding.LayoutToDoInfoBinding
 import com.example.besttodo.databinding.LayoutToDoListBinding
 import com.example.besttodo.logic.extensions.Actions
 import com.example.besttodo.logic.services.ToDoListService
@@ -44,11 +45,20 @@ val adapters = module {
     single { ToDoListAdapter() }
 }
 val viewBinding = module {
-    factory { createToDoListLayout(get(), get()) }
+    factory { LayoutToDoListBinding.inflate(get(), get(), false) }
+    factory { createLayoutToDoInfoBinding(get(), get(), get()) }
 }
 
-fun createToDoListLayout(inflater: LayoutInflater, container: ViewGroup?): LayoutToDoListBinding =
-    LayoutToDoListBinding.inflate(inflater, container, false)
+fun createLayoutToDoInfoBinding(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    viewModel: ToDoInfoViewModel
+): LayoutToDoInfoBinding {
+    val layout = LayoutToDoInfoBinding.inflate(inflater, container, false)
+    layout.viewModel = viewModel
+    return layout
+}
+
 
 fun createDao(db: ToDoDataBase): ToDoDao = db.todoDao
 
