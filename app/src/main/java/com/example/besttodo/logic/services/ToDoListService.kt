@@ -11,9 +11,6 @@ class ToDoListService : ToDoListServiceI {
     override suspend fun insertToDo(text: String) {
         todoRepository.insertToDo(ToDo(text))
     }
-
-    fun test() {
-    }
 }
 
 interface ToDoListServiceI {

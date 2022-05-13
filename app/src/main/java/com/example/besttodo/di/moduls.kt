@@ -14,6 +14,7 @@ import com.example.besttodo.databinding.LayoutToDoListBinding
 import com.example.besttodo.logic.extensions.Actions
 import com.example.besttodo.logic.services.ToDoListService
 import com.example.besttodo.logic.services.ToDoListServiceI
+import com.example.besttodo.ui.to_do_info.ToDoInfoViewArgs
 import com.example.besttodo.ui.to_do_info.ToDoInfoViewModel
 import com.example.besttodo.ui.to_do_list.ToDoListViewModel
 import com.example.besttodo.ui.to_do_list.components.ToDoListAdapter
@@ -45,20 +46,31 @@ val adapters = module {
     single { ToDoListAdapter() }
 }
 val viewBinding = module {
-    factory { LayoutToDoListBinding.inflate(get(), get(), false) }
-    factory { createLayoutToDoInfoBinding(get(), get(), get()) }
+    factory { createLayoutToDoListBinding(get(), get(), get()) }
+    factory { createLayoutToDoInfoBinding(get(), get(), get(), get()) }
 }
 
 fun createLayoutToDoInfoBinding(
     inflater: LayoutInflater,
     container: ViewGroup?,
+    args: ToDoInfoViewArgs,
     viewModel: ToDoInfoViewModel
 ): LayoutToDoInfoBinding {
     val layout = LayoutToDoInfoBinding.inflate(inflater, container, false)
     layout.viewModel = viewModel
+    layout.toDo = args.toDo
     return layout
 }
 
+fun createLayoutToDoListBinding(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    viewModel: ToDoListViewModel
+): LayoutToDoListBinding {
+    val layout = LayoutToDoListBinding.inflate(inflater, container, false)
+    layout.viewModel = viewModel
+    return layout
+}
 
 fun createDao(db: ToDoDataBase): ToDoDao = db.todoDao
 

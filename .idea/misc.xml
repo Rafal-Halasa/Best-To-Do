@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rafi/AndroidStudioProjects/BestToDo/app/src/main/res/layout/activity_splash_screen.xml" value="0.17889492753623187" />
         <entry key="..\:/Users/rafi/AndroidStudioProjects/BestToDo/app/src/main/res/layout/item_list_to_do.xml" value="0.4123173277661795" />
+        <entry key="..\:/Users/rafi/AndroidStudioProjects/BestToDo/app/src/main/res/layout/layout_splash_screen.xml" value="0.103125" />
         <entry key="..\:/Users/rafi/AndroidStudioProjects/BestToDo/app/src/main/res/layout/layout_to_do_info.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/rafi/AndroidStudioProjects/BestToDo/app/src/main/res/layout/layout_to_do_list.xml" value="0.17831813576494426" />
       </map>
