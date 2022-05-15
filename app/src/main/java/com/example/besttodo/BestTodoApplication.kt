@@ -13,8 +13,8 @@ class BestTodoApplication : Application() {
             modules(
                 viewModelsModules,
                 dbModules,
-                servicesModules,
                 repositoriesModules,
+                servicesModules,
                 appModules,
                 adapters,
                 viewBinding

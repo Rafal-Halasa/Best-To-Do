@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.room.Room
 import com.example.besttodo.data.base.SingleLiveData
+import com.example.besttodo.data.data_base.TestDataBase
 import com.example.besttodo.data.data_base.ToDoDataBase
 import com.example.besttodo.data.data_base.dao.ToDoDao
 import com.example.besttodo.data.repositories.ToDoRepository
@@ -33,6 +34,7 @@ val viewModelsModules = module {
 
 val dbModules = module {
     single { createDB(androidApplication()) }
+    single { createTestDB(androidApplication()) }
     single { createDao(get()) }
 }
 val servicesModules = module {
@@ -79,5 +81,12 @@ fun createDB(application: Application): ToDoDataBase {
         application,
         ToDoDataBase::class.java,
         "todo_data_database"
+    ).build()
+}
+fun createTestDB(application: Application): TestDataBase {
+    return Room.databaseBuilder(
+        application,
+        TestDataBase::class.java,
+        "test_data_database"
     ).build()
 }

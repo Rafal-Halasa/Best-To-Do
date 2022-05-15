@@ -6,4 +6,5 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 
 @Entity(tableName = "todo_table")
-data class ToDo(@PrimaryKey @ColumnInfo(name = "name") val name: String) : Serializable
+data class ToDo(@PrimaryKey @ColumnInfo(name = "name") var name: String, @ColumnInfo(name = "done") val done: Boolean = false) :
+    Serializable

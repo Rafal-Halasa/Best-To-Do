@@ -18,7 +18,7 @@ class ToDoListViewModel : ViewModel(), ToDoListViewModelI, KoinComponent {
     private val todoListService: ToDoListServiceI by inject()
 
 
-    override val toDoList: LiveData<List<ToDo>> = todoListService.allToDo.asLiveData()
+    override val toDoList: LiveData<List<ToDo>> = todoListService.allToDo
 
     override fun addToDo() {
 
